@@ -1,0 +1,12 @@
+.card {
+  position: relative;
+  &:hover {
+    cursor: pointer;
+  }
+  &__overlay-text {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-self: center;
+  }
+}

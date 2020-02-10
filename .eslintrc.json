@@ -1,0 +1,21 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint-config-airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "prettier"
+  ],
+  "plugins": ["prettier", "react-hooks", "react", "import"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-sort-props": ["error", { "callbacksLast": true }]
+  },
+  "settings": {
+    "import/extensions": [".js", ".jsx"]
+  }
+}
