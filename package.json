@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon --exec babel-node ./api/index.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn run start\" \"cd client && npm run start\""
+    "dev": "concurrently --kill-others-on-fail \"yarn run start\" \"cd client && npm run start\"",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "dependencies": {
     "axios": "^0.19.2",
