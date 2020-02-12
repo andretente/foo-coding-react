@@ -11,5 +11,5 @@ Home.propTypes = {
 }
 
 Home.defaultProps = {
-  message: 'Hi, this is a small React App with even smaller Apps ',
+  message: 'Hi, this is a small React App with even smaller Apps  🤯',
 }
