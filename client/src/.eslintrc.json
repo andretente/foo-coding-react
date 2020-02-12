@@ -1,0 +1,52 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint-config-airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "prettier"
+  ],
+  "plugins": ["prettier", "react-hooks", "react", "import"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-sort-props": ["error", { "callbacksLast": true }],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": false
+        },
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "@ingka/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "Core/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ]
+  },
+  "settings": {
+    "import/extensions": [".js", ".jsx"]
+  }
+}

@@ -2,7 +2,6 @@
   "name": "react-examples",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "André Tente <andre@kruso.se>",
   "license": "MIT",
   "scripts": {
     "start": "nodemon --exec babel-node ./api/index.js",
