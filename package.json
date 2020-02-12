@@ -60,5 +60,5 @@
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1"
   },
-  "proxy": "https://foo-coding-react-a33h8e5w0.now.sh/"
+  "proxy": "https://foo-coding-react-a33h8e5w0.now.sh:4000"
 }
