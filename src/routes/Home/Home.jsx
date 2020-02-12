@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { Text } from 'grommet'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 export default function Home({ message }) {
   return <Text>{message}</Text>

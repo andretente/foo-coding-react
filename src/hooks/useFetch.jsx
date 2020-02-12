@@ -1,30 +1,30 @@
-import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 export default function useFetch({ endpoint }) {
-  const [refetch, forceRefetch] = useState(false)
   const [state, setState] = useState({
     data: null,
-    loading: false,
+    loading: true,
     error: false,
+    hasLoaded: false,
   })
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        setState({ ...state, loading: true })
+  async function fetchData() {
+    try {
+      setState({ ...state, loading: true, hasLoaded: false })
 
-        const { data } = await axios.get(endpoint)
+      const { data } = await axios.get(endpoint)
 
-        setState({ ...state, loading: false, data })
-        forceRefetch(false)
-      } catch (err) {
-        setState({ ...state, loading: false, error: err })
-      }
+      setState({ ...state, loading: false, hasLoaded: true, data })
+    } catch (err) {
+      setState({ ...state, loading: false, error: err })
     }
+  }
+
+  useEffect(() => {
     fetchData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [refetch])
+  }, [])
 
-  return { ...state, forceRefetch }
+  return { ...state }
 }

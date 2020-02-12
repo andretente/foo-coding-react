@@ -1,5 +1,6 @@
 import 'dotenv/config'
 import express from 'express'
+
 import { firebaseRoutes, giphyRoutes, rickAndMorty } from './routes'
 
 const app = express()

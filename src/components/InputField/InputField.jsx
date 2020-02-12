@@ -1,22 +1,37 @@
-import React, { useState } from 'react'
 import { Button, TextInput } from 'grommet'
 import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+
+import './input.scss'
 
 export default function InputField({ submitText }) {
   const [text, setText] = useState('')
 
+  function onSubmitHanlder(event) {
+    event.preventDefault()
+    if (text) {
+      submitText(text)
+      setText('')
+    }
+  }
+
   return (
-    <div style={{ display: 'flex' }}>
-      <TextInput onChange={event => setText(event.target.value)} value={text} />
-      <Button label="Submit" onClick={() => submitText(text)} />
-    </div>
+    <form className="form" onSubmit={onSubmitHanlder}>
+      <div className="form__input">
+        <TextInput
+          value={text}
+          onChange={event => setText(event.target.value)}
+        />
+      </div>
+      <Button label="Submit" type="submit" onClick={onSubmitHanlder} />
+    </form>
   )
 }
 
 InputField.propTypes = {
-  submitText: PropTypes.string,
+  submitText: PropTypes.func,
 }
 
 InputField.defaultProps = {
-  submitText: '',
+  submitText: () => null,
 }

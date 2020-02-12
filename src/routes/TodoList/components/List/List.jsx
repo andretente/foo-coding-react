@@ -1,30 +1,31 @@
-import React from 'react'
+import { Table, TableBody, TableCell, TableHeader, TableRow } from 'grommet'
 import PropTypes from 'prop-types'
-import { Table, TableHeader, TableRow, TableCell, TableBody } from 'grommet'
+import React from 'react'
+
 import Item from './Item'
 
 export default function TodoList({ data }) {
   return (
-    <Table className="list" alignSelf="stretch">
+    <Table alignSelf="stretch" className="list">
       <TableHeader>
         <TableRow>
-          <TableCell scope="col" border="bottom">
+          <TableCell border="bottom" scope="col">
             Status
           </TableCell>
-          <TableCell scope="col" border="bottom">
+          <TableCell border="bottom" scope="col">
             Title
           </TableCell>
-          <TableCell scope="col" border="bottom">
+          <TableCell border="bottom" scope="col">
             Category
           </TableCell>
-          <TableCell scope="col" border="bottom">
+          <TableCell border="bottom" scope="col">
             Date
           </TableCell>
         </TableRow>
       </TableHeader>
       <TableBody>
         {data?.map(item => (
-          <Item key={item.id} data={item} />
+          <Item data={item} key={item.id} />
         ))}
       </TableBody>
     </Table>

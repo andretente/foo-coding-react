@@ -1,7 +1,6 @@
-/* eslint-disable react/forbid-prop-types */
-import React from 'react'
+import { Box, Text, Layer, Heading } from 'grommet'
 import PropTypes from 'prop-types'
-import { Box, Text, Layer } from 'grommet'
+import React from 'react'
 
 export default function MoreInfo({
   setLayer,
@@ -14,20 +13,23 @@ export default function MoreInfo({
   return (
     <Layer onClickOutside={() => setLayer(false)} onEsc={() => setLayer(false)}>
       <Box pad="large">
+        <Heading alignSelf="center" level="2">
+          Info
+        </Heading>
         <Text alignSelf="center">{name}</Text>
-        <Text>
+        <Text margin="small">
           Number of episodes:
           {episode.length}
         </Text>
-        <Text>
+        <Text margin="small">
           Location:
           {location.name}
         </Text>
-        <Text>
+        <Text margin="small">
           Species:
           {species}
         </Text>
-        <Text>
+        <Text margin="small">
           Status:
           {status}
         </Text>
@@ -37,8 +39,10 @@ export default function MoreInfo({
 }
 
 MoreInfo.propTypes = {
-  episode: PropTypes.array,
-  location: PropTypes.object,
+  episode: PropTypes.arrayOf(PropTypes.string),
+  location: PropTypes.shape({
+    name: PropTypes.string,
+  }),
   name: PropTypes.string,
   species: PropTypes.string,
   status: PropTypes.string,
@@ -46,7 +50,7 @@ MoreInfo.propTypes = {
 }
 
 MoreInfo.defaultProps = {
-  episode: [],
+  episode: '',
   name: '',
   location: {},
   species: '',

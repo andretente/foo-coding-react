@@ -1,22 +1,37 @@
-import React, { useEffect } from 'react'
 import { Box } from 'grommet'
+import React, { useEffect, useState } from 'react'
 
+import InputField from '../../components/InputField'
+import Spinner from '../../components/Spinner'
 import useFetch from '../../hooks/useFetch'
 import usePost from '../../hooks/usePost'
 
-import InputField from '../../components/InputField'
-import List from '../../components/List'
-import Spinner from '../../components/Spinner'
+import List from './components/List'
 
 export default function TodoList() {
-  const { data: list, loading: loadingFetch = true, forceRefetch } = useFetch({
+  const [state, setState] = useState({
+    intialLoad: false,
+    todoList: [],
+  })
+
+  const { data: initialList, loading: loadingFetch } = useFetch({
     endpoint: '/firebase/list',
   })
-  const { isFinished, post } = usePost({ endpoint: '/firebase/list' })
+
+  const { data: updatedList, loading: loadingPost, post } = usePost({
+    endpoint: '/firebase/list',
+  })
+
+  const isLoading = loadingFetch || loadingPost
 
   useEffect(() => {
-    forceRefetch(true)
-  }, [forceRefetch, isFinished])
+    if (initialList && !state.intialLoad) {
+      setState({ ...state, intialLoad: true, todoList: initialList })
+    } else if (updatedList && state.intialLoad) {
+      setState({ ...state, todoList: updatedList })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialList, updatedList])
 
   return (
     <Box>
@@ -25,7 +40,7 @@ export default function TodoList() {
           post(data)
         }}
       />
-      {loadingFetch ? <Spinner /> : <List data={list} />}
+      {isLoading ? <Spinner /> : <List data={state.todoList} />}
     </Box>
   )
 }

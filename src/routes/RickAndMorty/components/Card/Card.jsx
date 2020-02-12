@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-
 import { Box, Text, Image } from 'grommet'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+
 import MoreInfo from '../MoreInfo'
 
 import './card.scss'

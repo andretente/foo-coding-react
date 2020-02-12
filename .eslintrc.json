@@ -13,7 +13,38 @@
     "prettier/prettier": ["error"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/jsx-sort-props": ["error", { "callbacksLast": true }]
+    "react/jsx-sort-props": ["error", { "callbacksLast": true }],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": false
+        },
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "@ingka/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "Core/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ]
   },
   "settings": {
     "import/extensions": [".js", ".jsx"]

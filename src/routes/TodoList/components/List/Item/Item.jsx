@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import { TableRow, TableCell, CheckBox, Select } from 'grommet'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 
 export default function Item({
   data: { category: initialCategory, done: initalDone, title },
@@ -18,8 +18,8 @@ export default function Item({
       <TableCell>
         <Select
           options={['Work', 'Personal']}
-          onChange={({ option }) => setCategory(option)}
           value={category}
+          onChange={({ option }) => setCategory(option)}
         />
       </TableCell>
       <TableCell>

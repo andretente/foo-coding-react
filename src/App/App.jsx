@@ -1,12 +1,13 @@
-import React from 'react'
 import { Router } from '@reach/router'
+import React from 'react'
+
+// Routes
+import Giphy from '../routes/Giphy/Giphy'
+import Home from '../routes/Home'
+import RickAndMorty from '../routes/RickAndMorty'
+import Todo from '../routes/TodoList'
 
 import Navigation from './Navigation'
-// Routes
-import Home from '../routes/Home'
-import Todo from '../routes/TodoList'
-import Giphy from '../routes/Giphy/Giphy'
-import RickAndMorty from '../routes/RickAndMorty'
 import './app.scss'
 
 function App() {
