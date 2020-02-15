@@ -30,18 +30,6 @@
           "sibling",
           "index"
         ],
-        "pathGroups": [
-          {
-            "pattern": "@ingka/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "Core/**",
-            "group": "internal",
-            "position": "before"
-          }
-        ],
         "pathGroupsExcludedImportTypes": ["builtin"]
       }
     ]
