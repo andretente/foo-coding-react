@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "install:all": "yarn install && cd client && yarn install",
     "start": "nodemon --exec babel-node ./api/index.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn run start\" \"cd client && npm run start\"",
+    "dev": "concurrently --kill-others-on-fail \"yarn run start\" \"cd client && yarn run start\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
