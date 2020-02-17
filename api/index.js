@@ -6,7 +6,7 @@ import express from 'express'
 import { firebaseRoutes, giphyRoutes, rickAndMorty } from './routes'
 
 const app = express()
-const port = process.env.PORT
+const port = process.env.PORT || 4000
 
 const publicPath = path.join(__dirname, '../client/build')
 
