@@ -15,7 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 You'll need to create a firebase project and generate a giphy API key, then create a .env file and add your variables (REMEMBER TO GITIGNORE THE ENV FILE!)
 
-The .env file should include
+The .env file should include:
 API_KEY={YOUR-FIREBASE-API-KEY}
 AUTH_DOMAIN={YOUR-FIREBASE-AUTH-DOMAIN}
 DATABASE_URL={YOUR-FIREBASE-DATANASE-URL}
